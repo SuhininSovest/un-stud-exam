@@ -1,12 +1,15 @@
 package org.example;
 
+import java.io.IOException;
+
+
 public class Main {
-    public static void main(String[] args) {
-        Student student = new StudentBuilderToUniversity().setFullName("Petr").setUniversityId("1314")
-                .setCurrentCourseNumber(12).setAvgExamScore(12.4f).build();
-        University university = new UniversityBuildForStudent().setId("535g").setFullName("Уральский ун.......").setShortName("УРФУ")
-                .setYearOfFoundation(5).setMainProfile(StudyProfile.MEDICINE).build();
-        System.out.println(student);
-        System.out.println(university);
+    public static void main(String[] args) throws IOException {
+        //Запускаем чтение Excel
+        GetsXSSF.studentWriteExcel();
+        GetsXSSF.universityWriteExcel();
+        //Проверка Collection
+        System.out.println(GetsXSSF.sudentToCollection.toString());
+        System.out.println(GetsXSSF.universityToCollection.toString());
     }
 }
