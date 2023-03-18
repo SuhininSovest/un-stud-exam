@@ -1,9 +1,8 @@
 package org.example;
 
-public class Student {
-    public Student() {
 
-    }
+public class Student{
+    public Student() {}
     String fullName;
     String universityId;
     int currentCourseNumber;
@@ -53,5 +52,6 @@ public class Student {
         return "Студент : " + "Реестовый номер института " + getUniversityId() + ", ФИО: " + getFullName() +
                 ", Номер курса: " + getCurrentCourseNumber() + ", Средний балл за курс: " + getAvgExamScore();
     }
+
 }
 

@@ -1,6 +1,7 @@
 package org.example;
 
-public class University {
+
+public class University{
     String id;
     String fullName;
     String shortName;
@@ -64,6 +65,5 @@ public class University {
         return "Университет: " + "Реестовый номер " + getId() + ", Название: " + getFullName() + ", Абривиатура: " + getShortName() +
                 ", Год Основания: " + getYearOfFoundation() + ", Направление подготовки: " + mainProfile.GetTranslation();
     }
-
 
 }
