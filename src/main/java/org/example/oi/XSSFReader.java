@@ -1,8 +1,11 @@
-package org.example;
+package org.example.oi;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.example.model.Student;
+import org.example.model.StudyProfile;
+import org.example.model.University;
 
 import java.io.FileInputStream;
 import java.io.IOException;

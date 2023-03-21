@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 public class UniversityBuildForStudent implements UniversityBuilder{
     University university = new University();
