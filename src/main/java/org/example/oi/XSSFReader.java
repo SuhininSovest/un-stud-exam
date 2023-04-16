@@ -1,5 +1,7 @@
 package org.example.oi;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -14,10 +16,12 @@ import java.util.Iterator;
 import java.util.List;
 
 public class XSSFReader {
+    private static final Log log = LogFactory.getLog(XSSFReader.class.getName());
 
     private XSSFReader() {}
 
     public static List<University> readXlsUniversities(String filePath) throws IOException {
+        log.info("start read text university to xlsx");
 
         List<University> universities = new ArrayList<>();
 
@@ -39,11 +43,12 @@ public class XSSFReader {
             university.setMainProfile(StudyProfile.valueOf(
                     StudyProfile.class, currentRow.getCell(4).getStringCellValue()));
         }
-
+        log.info("finish read text university to xlsx");
         return universities;
     }
 
     public static List<Student> readXlsStudents(String filePath) throws IOException {
+        log.info("start read text students to xlsx");
 
         List<Student> students = new ArrayList<>();
 
@@ -63,7 +68,7 @@ public class XSSFReader {
             student.setCurrentCourseNumber((int)currentRow.getCell(2).getNumericCellValue());
             student.setAvgExamScore((float)currentRow.getCell(3).getNumericCellValue());
         }
-
+        log.info("finish read text students to xlsx");
         return students;
     }
 }

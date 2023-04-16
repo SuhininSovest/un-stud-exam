@@ -1,11 +1,14 @@
 package org.example.oi;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.example.Main;
 import org.example.model.Statistics;
 
 import java.io.FileOutputStream;
@@ -13,11 +16,13 @@ import java.io.IOException;
 import java.util.List;
 
 public class XlsWriter {
+    private static final Log log = LogFactory.getLog(XlsWriter.class.getName());
     private XlsWriter() {
     }
 
     public static void writeXlsStatistics(List<Statistics> statisticsList,
                                           String filePath) throws IOException {
+        log.info("start write to xlsx");
 
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet statisticsSheet = workbook.createSheet("Статистика");
@@ -63,5 +68,7 @@ public class XlsWriter {
         try (FileOutputStream outputStream = new FileOutputStream(filePath)) {
             workbook.write(outputStream);
         }
+        log.info("finish write to xlsx");
     }
+
 }
